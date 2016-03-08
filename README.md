@@ -38,11 +38,11 @@ try {
 ```
 
 The corresponding log file will be created in the `/wp-content/uploads/wp-advanced-logs` folder and will look like this:
-<code>
+```
 2016-02-27T19:42:16+01:00 myClass.php DEBUG Here is a really useful debug log
 2016-02-27T19:42:17+01:00 myClass.php INFO Coolest logging plugin for Wordpress is here!
 2016-02-27T19:42:17+01:00 myClass.php ERROR Oups, Looks like something went wrong :(
-</code>
+```
 
 The default logger level is set to DEBUG but it will be possible to override it in a future release.
 
