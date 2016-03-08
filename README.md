@@ -13,6 +13,46 @@ Wordpress default log system (wp-content/debug.log) isn't very powerful. If you 
 
 The plugin can be installed directly into your plugins folder "as-is".
 
+## Quick start
+
+The plugin comes with a default 'basic' logger and is ready to use after you activate in in the Wordpress extension dashboard.
+
+To call the default logger in your code, simply add this line of code:
+```php
+$logger = Logger::getLogger('default');
+```
+Here are few examples of what you can do with this logger:
+```php
+...
+$logger.debug('Here is a really useful debug log');
+try {
+  ...
+  $logger.info('Coolest logging plugin for Wordpress is here!');
+  // The following code throws an exception
+  generateException();
+  ...
+} catch( exception e ) {
+  $logger.error('Oups, Looks like something went wrong :(');
+  ...
+}
+```
+
+The corresponding log file will be created in the `/wp-content/uploads/wp-advanced-logs` folder and will look like this:
+<code>
+2016-02-27T19:42:16+01:00 myClass.php DEBUG Here is a really useful debug log
+2016-02-27T19:42:17+01:00 myClass.php INFO Coolest logging plugin for Wordpress is here!
+2016-02-27T19:42:17+01:00 myClass.php ERROR Oups, Looks like something went wrong :(
+</code>
+
+The default logger level is set to DEBUG but it will be possible to override it in a future release.
+
+## Settings
+
+Here are some of the settings you'll be able to change in a near future:
+* Customize Log file name and destination
+* Choose between various appenders types
+* Configure the default log level (Trace > Debug > Info > Warn > Error > Fatal)
+
 ## License
 
 The WordPress Plugin Boilerplate is licensed under the [GPL v3](http://www.gnu.org/licenses/gpl.html)
